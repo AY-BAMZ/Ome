@@ -29,7 +29,7 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: 50,
-    borderRadius: 50,
+    borderRadius: 8,
     marginTop: 12,
   },
   buttonTextTwo: {
@@ -79,4 +79,10 @@ export const globalStyles = StyleSheet.create({
     fontFamily: "outfit-regular",
     fontSize: 12,
   },
+
+  headerIconBox: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#fff'
+  }
 });

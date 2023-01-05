@@ -7,21 +7,23 @@ import Profile from "../screens/DrawerTabs/Profile";
 import Settings from "../screens/DrawerTabs/Settings";
 import CustomerSupport from "../screens/DrawerTabs/CustomerSupport";
 import { Ionicons } from "@expo/vector-icons";
-import { MaterialIcons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
+import Header from "../screens/DrawerTabs/Header";
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNav() {
   const screenOptions = {
     unmountOnBlur: false,
-    headerShown: false,
+    // headerShown: false,
+
     drawerStyle: {
       backgroundColor: "#fff",
       width: "60%",
-      Height: "100%",
+      flex: 1,
       marginBottom: 10,
       marginRight: 5,
       //   borderRadius: 100,
@@ -46,20 +48,26 @@ export default function DrawerNav() {
               focused ? (
                 <MaterialIcons name="dashboard" size={size} color={color} />
               ) : (
-                <MaterialCommunityIcons name="view-dashboard-outline" size={size} color={color} />
+                <MaterialCommunityIcons
+                  name="view-dashboard-outline"
+                  size={size}
+                  color={color}
+                />
               ),
+            header: () => <Header />,
           }}
           component={Tabs}
         />
         <Drawer.Screen
           name="Profile"
           options={{
+            headerShown: false,
             drawerIcon: ({ color, size, focused }) =>
               focused ? (
                 <FontAwesome name="user" size={size} color={color} />
-                ) : (
-                  <FontAwesome name="user-o" size={size} color={color} />
-                ),
+              ) : (
+                <FontAwesome name="user-o" size={size} color={color} />
+              ),
           }}
           component={Profile}
         />
