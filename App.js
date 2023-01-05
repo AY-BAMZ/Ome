@@ -1,6 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import "react-native-gesture-handler";
+import AppLoading from "expo-app-loading";
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
+import * as Font from "expo-font";
+import DrawerNav from "./routes/DrawerNav";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const getFonts = () =>
   Font.loadAsync({
@@ -15,21 +20,32 @@ const getFonts = () =>
     "outfit-black": require("./assets/font/Outfit-Black.ttf"),
   });
 
-
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  if (fontsLoaded) {
+    return (
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <PaperProvider>
+          <DrawerNav />
+        </PaperProvider>
+      </GestureHandlerRootView>
+    );
+  } else {
+    return (
+      <AppLoading
+        startAsync={getFonts}
+        onFinish={() => setFontsLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
