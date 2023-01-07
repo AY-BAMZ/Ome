@@ -6,6 +6,8 @@ import { Provider as PaperProvider } from "react-native-paper";
 import * as Font from "expo-font";
 import DrawerNav from "./routes/DrawerNav";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import HouseProvider from "./context/HouseContext";
+import CategoryProvider from "./context/CategoryContext";
 
 const getFonts = () =>
   Font.loadAsync({
@@ -26,7 +28,11 @@ export default function App() {
     return (
       <GestureHandlerRootView style={{ flex: 1 }}>
         <PaperProvider>
-          <DrawerNav />
+          <HouseProvider>
+            <CategoryProvider>
+              <DrawerNav />
+            </CategoryProvider>
+          </HouseProvider>
         </PaperProvider>
       </GestureHandlerRootView>
     );

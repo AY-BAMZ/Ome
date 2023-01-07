@@ -8,13 +8,15 @@ import Search from "../../screens/Tabs/Search/Search";
 import Transactions from "../../screens/Tabs/Transactions/Transactions";
 import Inbox from "../../screens/Tabs/Inbox/Inbox";
 import BookMarks from "../../screens/Tabs/BookMarks/BookMarks";
+import Header from "../../screens/DrawerTabs/HeaderTwo";
+import HeaderTwo from "../../screens/DrawerTabs/HeaderTwo";
 
 const Tab = createBottomTabNavigator();
 
 const Root = () => {
   const screenOptions = {
     unmountOnBlur: false,
-    headerShown: false,
+    // headerShown: false,
     tabBarStyle: {
       backgroundColor: "#fff",
       height: 80,
@@ -47,6 +49,7 @@ const Root = () => {
             ) : (
               <Ionicons name="home-outline" size={size} color={color} />
             ),
+            header: () => <HeaderTwo />,
         }}
         component={Home}
       />
@@ -59,6 +62,7 @@ const Root = () => {
             ) : (
               <Ionicons name="search-outline" size={size} color={color} />
             ),
+            header: () => <Header />,
         }}
         component={Search}
       />

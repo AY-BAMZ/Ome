@@ -18,7 +18,7 @@ const Drawer = createDrawerNavigator();
 export default function DrawerNav() {
   const screenOptions = {
     unmountOnBlur: false,
-    // headerShown: false,
+    headerShown: false,
 
     drawerStyle: {
       backgroundColor: "#fff",

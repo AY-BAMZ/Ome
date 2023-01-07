@@ -8,7 +8,7 @@ export const globalStyles = StyleSheet.create({
   },
   pageText: {
     fontFamily: "outfit-semibold",
-    color: "#000",
+    color: "#2B2A30",
     fontSize: 24,
   },
   button: {
@@ -38,51 +38,69 @@ export const globalStyles = StyleSheet.create({
     fontSize: 16,
   },
   input: {
-    width: "100%",
+    maxWidth: "78%",
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
-    height: 50,
+    height: 40,
     paddingHorizontal: 15,
     borderRadius: 50,
     marginVertical: 12,
+    textAlign: 'center'
   },
   textOne: {
     fontFamily: "outfit-bold",
+    color: "#2B2A30",
     fontSize: 40,
   },
   textTwo: {
     fontFamily: "outfit-bold",
+    color: "#2B2A30",
     fontSize: 32,
   },
   textThree: {
     fontFamily: "outfit-semibold",
+    color: "#2B2A30",
     fontSize: 24,
   },
   textFour: {
     fontFamily: "outfit-semibold",
+    color: "#2B2A30",
     fontSize: 20,
   },
   textFive: {
     fontFamily: "outfit-medium",
+    color: "#2B2A30",
     fontSize: 18,
   },
   textSix: {
     fontFamily: "outfit-medium",
+    color: "#2B2A30",
     fontSize: 16,
   },
   textSeven: {
     fontFamily: "outfit-regular",
+    color: "#2B2A30",
     fontSize: 14,
   },
   textEight: {
     fontFamily: "outfit-regular",
+    color: "#2B2A30",
     fontSize: 12,
   },
-
   headerIconBox: {
     padding: 8,
     borderRadius: 8,
     backgroundColor: '#fff'
+  },
+  filter: {
+    padding: 8,
+    borderRadius: 40,
+    width: 40,
+    height: 40,
+    backgroundColor: '#79007B',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row'
   }
 });
