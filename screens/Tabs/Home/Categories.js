@@ -67,13 +67,14 @@ const styles = StyleSheet.create({
   container: {},
   horizontalList: {
     paddingLeft: 20,
+    paddingRight: 20
   },
   label: {
     marginHorizontal: 20,
     marginVertical: 12,
   },
   card: {
-    marginRight: 12,
+    marginRight: 20,
   },
   activeTab: {
     paddingHorizontal: 16,

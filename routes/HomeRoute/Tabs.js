@@ -8,8 +8,7 @@ import Search from "../../screens/Tabs/Search/Search";
 import Transactions from "../../screens/Tabs/Transactions/Transactions";
 import Inbox from "../../screens/Tabs/Inbox/Inbox";
 import BookMarks from "../../screens/Tabs/BookMarks/BookMarks";
-import Header from "../../screens/DrawerTabs/HeaderTwo";
-import HeaderTwo from "../../screens/DrawerTabs/HeaderTwo";
+import Header from "../../screens/DrawerTabs/Header";
 
 const Tab = createBottomTabNavigator();
 
@@ -49,7 +48,7 @@ const Root = () => {
             ) : (
               <Ionicons name="home-outline" size={size} color={color} />
             ),
-            header: () => <HeaderTwo />,
+            header: () => <Header title={'Home'} />,
         }}
         component={Home}
       />
@@ -62,7 +61,7 @@ const Root = () => {
             ) : (
               <Ionicons name="search-outline" size={size} color={color} />
             ),
-            header: () => <Header />,
+            header: () => <Header title={'Search'}/>,
         }}
         component={Search}
       />
@@ -75,6 +74,7 @@ const Root = () => {
             ) : (
               <MaterialIcons name="compare-arrows" size={size} color={color} />
             ),
+            header: () => <Header title={'Transactions'}/>,
         }}
         component={Transactions}
       />
@@ -87,6 +87,7 @@ const Root = () => {
             ) : (
               <Ionicons name="chatbubbles-outline" size={size} color={color} />
             ),
+            header: () => <Header title={'Inbox'}/>,
         }}
         component={Inbox}
       />
@@ -103,6 +104,7 @@ const Root = () => {
                 color={color}
               />
             ),
+            header: () => <Header title={'BookMarks'}/>,
         }}
         component={BookMarks}
       />
