@@ -5,11 +5,11 @@ import Hero from "./Hero";
 import Categories from "./Categories";
 import TopPicks from "./TopPicks";
 
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <ScrollView style={styles.container}>
       <Hero />
-      <Categories />
+      <Categories navigation={navigation}/>
       <TopPicks />
     </ScrollView>
   );

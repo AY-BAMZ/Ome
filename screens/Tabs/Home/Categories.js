@@ -6,7 +6,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { globalStyles } from "../../../styles/global";
 import { useCategoryContext } from "../../../context/CategoryContext";
 
-export default function Categories() {
+export default function Categories({navigation}) {
   const { houses, setHouses } = useHouseContext();
   const { category, setCategory } = useCategoryContext();
   const houseCategories = [
@@ -53,7 +53,9 @@ export default function Categories() {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity style={styles.card}>
+            <TouchableOpacity style={styles.card}
+            onPress={() => navigation.navigate("ProductPage", item)}
+            >
               <CardOne item={item} />
             </TouchableOpacity>
           );
