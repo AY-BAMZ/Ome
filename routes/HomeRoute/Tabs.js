@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from '@expo/vector-icons';
-import Search from "../../screens/Tabs/Search/Search";
 import Transactions from "../../screens/Tabs/Transactions/Transactions";
 import Inbox from "../../screens/Tabs/Inbox/Inbox";
 import BookMarks from "../../screens/Tabs/BookMarks/BookMarks";
 import Header from "../../screens/DrawerTabs/Header";
 import HomeStack from "./HomeStack";
+import SearchStack from "./SearchStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -53,7 +53,7 @@ const Root = () => {
         component={HomeStack}
       />
       <Tab.Screen
-        name="Search"
+        name="Search Stack"
         options={{
           tabBarIcon: ({ color, size, focused }) =>
             focused ? (
@@ -61,9 +61,9 @@ const Root = () => {
             ) : (
               <Ionicons name="search-outline" size={size} color={color} />
             ),
-            header: () => <Header title={'Search'}/>,
+            headerShown: false
         }}
-        component={Search}
+        component={SearchStack}
       />
       <Tab.Screen
         name="Transactions"

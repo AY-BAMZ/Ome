@@ -6,7 +6,7 @@ import { FlatList, TextInput } from "react-native-gesture-handler";
 import { useHouseContext } from "../../../context/HouseContext";
 import CardTwo from "./CardTwo";
 
-export default function Search() {  
+export default function Search({navigation}) {  
   
   const { houses, setHouses } = useHouseContext();
 
@@ -32,8 +32,8 @@ export default function Search() {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity style={styles.card}>
-              <CardTwo item={item} />
+            <TouchableOpacity onPress={() => navigation.navigate("ProductPage", item)} style={styles.card}>
+              <CardTwo  item={item} />
             </TouchableOpacity>
           );
         }}

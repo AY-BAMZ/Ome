@@ -1,6 +1,6 @@
 import {
   Dimensions,
-  FlatList,
+  Share,
   Image,
   StyleSheet,
   Text,
@@ -11,6 +11,7 @@ import React, { useState } from "react";
 import Carousel from "react-native-reanimated-carousel";
 import { Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../../../styles/global";
+import { ScrollView } from "react-native-gesture-handler";
 
 const customWidth = Dimensions.get("window").width;
 
@@ -20,6 +21,26 @@ export default function ProductPage({ route, navigation }) {
     // navigation.push("ProductPage")
   };
 
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'Share this Apartment using this link',
+          url: route.params.productimage
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   const star = {
     ratings: {
       1: require("../../../assets/star1.png"),
@@ -30,7 +51,7 @@ export default function ProductPage({ route, navigation }) {
     },
   };
 
-  const rating = route.params.rating; 
+  const rating = route.params.rating;
 
   const houseImages = [
     {
@@ -69,7 +90,7 @@ export default function ProductPage({ route, navigation }) {
 
   const width = Dimensions.get("window").width;
   return (
-    <View>
+    <ScrollView style={styles.productPage}>
       {/* <FlatList 
         data={houseImages}
         horizontal={true}
@@ -102,13 +123,16 @@ export default function ProductPage({ route, navigation }) {
       />
       <View style={styles.container}>
         <View style={styles.relatedInfo}>
-          <Text style={styles.productType}>{route.params.housetype}</Text>
+          <View style={styles.details}>
+            <Text style={styles.productType}>{route.params.housetype}</Text>
+            <Text style={globalStyles.textSix}>05 - 01 - 2023</Text>
+          </View>
           {likeHome === false ? (
             <Ionicons
               onPress={() => {
-                setLikeHome(true); 
-            // handleSavedHouses()
-        }}
+                setLikeHome(true);
+                // handleSavedHouses()
+              }}
               name="heart-outline"
               size={24}
               color="black"
@@ -152,12 +176,22 @@ export default function ProductPage({ route, navigation }) {
           </View>
         </View>
       </View>
-      <TouchableOpacity 
-    //   onPress={() => handleAddToCart()} 
-      style={[globalStyles.button, styles.button]}>
+      <TouchableOpacity
+        //   onPress={() => handleAddToCart()}
+        style={[globalStyles.button, styles.button]}
+      >
         <Text style={globalStyles.buttonText}>Book Now</Text>
       </TouchableOpacity>
-    </View>
+      <TouchableOpacity
+        style={[globalStyles.buttonTwo, styles.button]}
+        onPress={onShare}
+      >
+        <Text style={globalStyles.buttonTextTwo}>
+          <Ionicons name="share-social" size={20} style={{paddingRight: 16}} color="#79007B" />
+           {"  "}Share now
+        </Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
@@ -167,6 +201,10 @@ const styles = StyleSheet.create({
     height: 400,
     borderBottomLeftRadius: 24,
     borderBottomRightRadius: 24,
+  },
+  productPage: {
+    marginBottom: 80,
+    flex: 1,
   },
   back: {
     backgroundColor: "#ffffffaa",
@@ -183,7 +221,7 @@ const styles = StyleSheet.create({
   },
   container: {
     zIndex: 10,
-    marginTop: -100,
+    marginTop: -70,
     marginHorizontal: 20,
     backgroundColor: "#fff",
     padding: 24,
