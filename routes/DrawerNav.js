@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Button, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./HomeRoute/Tabs";
 import Profile from "../screens/DrawerTabs/Profile";
 import Settings from "../screens/DrawerTabs/Settings";
@@ -39,7 +38,6 @@ export default function DrawerNav() {
     // },
   };
   return (
-    <NavigationContainer>
       <Drawer.Navigator {...{ screenOptions }} initialRouteName="Home">
         <Drawer.Screen
           name="Dashboard"
@@ -107,6 +105,5 @@ export default function DrawerNav() {
           }}
         /> */}
       </Drawer.Navigator>
-    </NavigationContainer>
   );
 }

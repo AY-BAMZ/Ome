@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Provider as PaperProvider } from "react-native-paper";
 import * as Font from "expo-font";
-import DrawerNav from "./routes/DrawerNav";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import HouseProvider from "./context/HouseContext";
 import CategoryProvider from "./context/CategoryContext";
+import MainNav from "./routes/MainNav";
+import AuthProvider from "./api/auth/AuthContext";
 
 const getFonts = () =>
   Font.loadAsync({
@@ -28,11 +29,13 @@ export default function App() {
     return (
       <GestureHandlerRootView style={{ flex: 1 }}>
         <PaperProvider>
-          <HouseProvider>
-            <CategoryProvider>
-              <DrawerNav />
-            </CategoryProvider>
-          </HouseProvider>
+          <AuthProvider>
+            <HouseProvider>
+              <CategoryProvider>
+                <MainNav />
+              </CategoryProvider>
+            </HouseProvider>
+          </AuthProvider>
         </PaperProvider>
       </GestureHandlerRootView>
     );

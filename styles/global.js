@@ -38,6 +38,25 @@ export const globalStyles = StyleSheet.create({
     fontSize: 16,
   },
   input: {
+    // maxWidth: "100%",
+    backgroundColor: "#fff",
+    flexDirection: "row",
+    alignItems: "center",
+    height: 40,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    borderColor: "#dddddd",
+    borderWidth: 1,
+    marginVertical: 4,
+    // textAlign: 'center'
+  },
+  label: {
+    fontFamily: "outfit-regular",
+    color: "#2B2A30",
+    fontSize: 14,
+    marginTop: 8
+  },
+  inputTwo: {
     maxWidth: "78%",
     backgroundColor: "#fff",
     flexDirection: "row",
