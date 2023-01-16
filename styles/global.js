@@ -57,15 +57,17 @@ export const globalStyles = StyleSheet.create({
     marginTop: 8
   },
   inputTwo: {
-    maxWidth: "78%",
+    maxWidth: "100%",
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
     height: 40,
     paddingHorizontal: 15,
-    borderRadius: 50,
+    borderRadius: 8,
     marginVertical: 12,
-    textAlign: 'center'
+    textAlign: 'center',
+    borderColor: "#dddddd",
+    borderWidth: 1,
   },
   textOne: {
     fontFamily: "outfit-bold",

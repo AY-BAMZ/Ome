@@ -67,6 +67,8 @@ export default function Login({ navigation }) {
           style={globalStyles.input}
           placeholder="Enter your email"
           value={email}
+          autoComplete="email"
+          keyboardType="email-address"
           onChangeText={(val) => updateInputVal(val, "email")}
           returnKeyType="next"
           onSubmitEditing={() =>

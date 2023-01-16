@@ -9,8 +9,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Header from "../screens/DrawerTabs/Header";
+import Blogs from "../screens/Blogs/Blogs";
+import BlogStack from "./BlogsRoute/BlogStack";
 
 const Drawer = createDrawerNavigator();
 
@@ -93,17 +96,18 @@ export default function DrawerNav() {
           }}
           component={CustomerSupport}
         />
-        {/* <Drawer.Screen
-          name="Log Out"
+        <Drawer.Screen
+          name="Blogs"
           options={{
             drawerIcon: ({ color, size, focused }) =>
               focused ? (
-                <AntDesign name="customerservice" size={size} color={color} />
+                <FontAwesome5  name="blog" size={size} color={color} />
               ) : (
-                <AntDesign name="customerservice" size={size} color={color} />
+                <FontAwesome5  name="blog" size={size} color={color} />
               ),
           }}
-        /> */}
+          component={BlogStack}
+        />
       </Drawer.Navigator>
   );
 }

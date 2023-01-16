@@ -9,6 +9,7 @@ import HouseProvider from "./context/HouseContext";
 import CategoryProvider from "./context/CategoryContext";
 import MainNav from "./routes/MainNav";
 import AuthProvider from "./api/auth/AuthContext";
+import BlogProvider from "./api/Blogs/BlogContext";
 
 const getFonts = () =>
   Font.loadAsync({
@@ -30,11 +31,13 @@ export default function App() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <PaperProvider>
           <AuthProvider>
-            <HouseProvider>
-              <CategoryProvider>
-                <MainNav />
-              </CategoryProvider>
-            </HouseProvider>
+            <BlogProvider>
+              <HouseProvider>
+                <CategoryProvider>
+                  <MainNav />
+                </CategoryProvider>
+              </HouseProvider>
+            </BlogProvider>
           </AuthProvider>
         </PaperProvider>
       </GestureHandlerRootView>

@@ -7,6 +7,7 @@ export const AuthContext = createContext({});
 const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false)
+  const [apiErrorMsg, setApiErrorMsg] = useState("")
 
 //   sign up request
   const handleRegister = async ({
@@ -40,7 +41,16 @@ const AuthProvider = (props) => {
       console.log('response', response.data)
     } catch (error) {
         console.log('error', error.response)
-    }
+        if (!err?.response) {
+          setApiErrorMsg("No Server Response");
+        } else if (err.response?.status === 409) {
+          setApiErrorMsg("User Already Exist");
+        } else {
+          setApiErrorMsg("Registration Failed");
+        }
+        
+      }
+      setIsLoading(false)
   };
 
 
@@ -69,7 +79,8 @@ const AuthProvider = (props) => {
     //   props.onLoggedIn(data);
       console.log('response', user)
     } catch (error) {
-        console.log('error', error.response)
+        console.log('error', error.response.data)
+      setIsLoading(false)
     }
   };
 

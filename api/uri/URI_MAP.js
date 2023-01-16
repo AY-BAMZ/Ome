@@ -5,7 +5,7 @@ const URI_MAP = {
   ome: {
     register: `${BASE_URL}accounts/register/`,
     login: `${BASE_URL}accounts/login/`,
-    // getprofile: `${BASE_URL}auth/forgot-password/`,
+    allblogs: `${BASE_URL}blogs/`,
     // createpage: `${BASE_URL}page/create-page/`,
     // getpage: `${BASE_URL}page/get-page`,
     // deletepage: `${BASE_URL}page/delete-page`,

@@ -7,19 +7,16 @@ const Stack = createNativeStackNavigator();
 
 export default function SignInStack() {
   return (
-      <Stack.Navigator
-        initialRouteName="Register"
-        screenOptions={{headerStyle: { backgroundColor: "purple",height: 80},headerShown: false, headerTintColor: "#fff"}}
-      >
-        <Stack.Screen
-          name="Register"
-          component={Register}
-        //   options={{
-        //     header: () => <Header title={'Register'} />,
-        //     headerShown: true
-        //   }}
-        />
-        <Stack.Screen name="Login" component={LogIn} />
-      </Stack.Navigator>
+    <Stack.Navigator
+      initialRouteName="Login"
+      screenOptions={{
+        headerStyle: { backgroundColor: "purple", height: 80 },
+        headerShown: false,
+        headerTintColor: "#fff",
+      }}
+    >
+      <Stack.Screen name="Login" component={LogIn} />
+      <Stack.Screen name="Register" component={Register} />
+    </Stack.Navigator>
   );
 }
