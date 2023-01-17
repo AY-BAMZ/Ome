@@ -1,14 +1,16 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { globalStyles } from "../../styles/global";
 import { Ionicons } from "@expo/vector-icons";
 import { useBlogContext } from "../../api/Blogs/BlogContext";
 import Loading from "../Loadings/Loading";
+import BlogCard from "./BlogCard";
 
 export default function Blogs() {
     const {ordering, setOrdering} = useBlogContext()
     const {search, setSearch} = useBlogContext()
+    const {blogs, setBlogs} = useBlogContext()
 
     const {handleGetBlogs} = useBlogContext()
     const {isLoading} = useBlogContext() 
@@ -49,6 +51,17 @@ export default function Blogs() {
           />
         </View>
         <Text style={globalStyles.textTwo}>Result for {search}</Text>
+        <FlatList
+        style={styles.blogList}
+            data={blogs}
+            renderItem={({item}) => {
+                return (
+                    <TouchableOpacity>
+                    <BlogCard item={item} />
+                </TouchableOpacity>
+                )
+            }}
+        />
       </TouchableWithoutFeedback>
     </ScrollView>
   );
@@ -65,5 +78,8 @@ const styles = StyleSheet.create({
   },
   searchResult:{
 
-  }
+  },
+//   blogList{
+//     ma
+//   }
 });

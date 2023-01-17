@@ -10,7 +10,7 @@ const BlogProvider = (props) => {
   const [ordering, setOrdering] = useState("")
   const [search, setSearch] = useState("")
   const [limit, setLimit] = useState(20)
-  const [offset, setOffset] = useState("")
+  const [offset, setOffset] = useState(0)
 
   //   sign up request
   
@@ -28,13 +28,13 @@ const BlogProvider = (props) => {
       });
       setIsLoading(false);
       const data = response.data;
-      setBlogs(data);
-      console.log("response", response.data);
+      setBlogs(data.results);
     } catch (error) {
-      console.log("error", error.response);
-      setIsLoading(false);
+        console.log("error", error.response);
+        setIsLoading(false);
     }
-  };
+};
+// console.log("response", blogs);
 
   useEffect(() => {
     
