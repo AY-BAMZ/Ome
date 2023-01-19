@@ -10,6 +10,7 @@ import CategoryProvider from "./context/CategoryContext";
 import MainNav from "./routes/MainNav";
 import AuthProvider from "./api/auth/AuthContext";
 import BlogProvider from "./api/Blogs/BlogContext";
+import ContactProvider from "./api/Contact/ContactContext";
 
 const getFonts = () =>
   Font.loadAsync({
@@ -33,9 +34,11 @@ export default function App() {
           <AuthProvider>
             <BlogProvider>
               <HouseProvider>
-                <CategoryProvider>
-                  <MainNav />
-                </CategoryProvider>
+                <ContactProvider>
+                  <CategoryProvider>
+                    <MainNav />
+                  </CategoryProvider>
+                </ContactProvider>
               </HouseProvider>
             </BlogProvider>
           </AuthProvider>

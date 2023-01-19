@@ -37,6 +37,32 @@ export const globalStyles = StyleSheet.create({
     color: "#79007B",
     fontSize: 16,
   },
+  buttonThree: {
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 50,
+    borderRadius: 8,
+    marginTop: 12,
+  },
+  buttonTextThree: {
+    fontFamily: "outfit-semibold",
+    color: "#79007B",
+    fontSize: 16,
+  },
+  textarea: {
+    // maxWidth: "100%",
+    backgroundColor: "#fff",
+    flexDirection: "row",
+    alignItems: "center",
+    height: 120,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    borderColor: "#dddddd",
+    borderWidth: 1,
+    marginVertical: 4,
+    // textAlign: 'center'
+  },
   input: {
     // maxWidth: "100%",
     backgroundColor: "#fff",

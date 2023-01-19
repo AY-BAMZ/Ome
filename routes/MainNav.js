@@ -20,8 +20,8 @@ export default function MainNav() {
       >
         {
           user === null ? 
-          <Stack.Screen name="DrawerNav" component={DrawerNav} />:
-          <Stack.Screen name="SignInStack" component={SignInStack} /> 
+          <Stack.Screen name="SignInStack" component={SignInStack} /> :
+          <Stack.Screen name="DrawerNav" component={DrawerNav} />
       }
       </Stack.Navigator>
     </NavigationContainer>

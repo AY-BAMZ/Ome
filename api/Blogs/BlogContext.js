@@ -29,6 +29,7 @@ const BlogProvider = (props) => {
       setIsLoading(false);
       const data = response.data;
       setBlogs(data.results);
+      // console.log('data', data)
     } catch (error) {
         console.log("error", error.response);
         setIsLoading(false);

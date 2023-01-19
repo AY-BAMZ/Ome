@@ -6,7 +6,7 @@ const URI_MAP = {
     register: `${BASE_URL}accounts/register/`,
     login: `${BASE_URL}accounts/login/`,
     allblogs: `${BASE_URL}blogs/`,
-    // createpage: `${BASE_URL}page/create-page/`,
+    contactus: `${BASE_URL}info/contact/`,
     // getpage: `${BASE_URL}page/get-page`,
     // deletepage: `${BASE_URL}page/delete-page`,
     // getprofile: `${BASE_URL}profiles/get-profile`,

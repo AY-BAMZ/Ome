@@ -14,6 +14,7 @@ import { AntDesign } from "@expo/vector-icons";
 import Header from "../screens/DrawerTabs/Header";
 import Blogs from "../screens/Blogs/Blogs";
 import BlogStack from "./BlogsRoute/BlogStack";
+import ContactUs from "../screens/ContactUs/ContactUs";
 
 const Drawer = createDrawerNavigator();
 
@@ -107,6 +108,20 @@ export default function DrawerNav() {
               ),
           }}
           component={BlogStack}
+        />
+        <Drawer.Screen
+          name="ContactUs"
+          options={{
+            drawerIcon: ({ color, size, focused }) =>
+              focused ? (
+                <MaterialIcons   name="contact-support" size={size} color={color} />
+              ) : (
+                <MaterialIcons   name="contact-support" size={size} color={color} />
+              ),
+          header: () => <Header title={'Contact Us'} />,
+          headerShown: true
+          }}
+          component={ContactUs}
         />
       </Drawer.Navigator>
   );
