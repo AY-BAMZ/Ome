@@ -52,6 +52,7 @@ const AuthProvider = (props) => {
       }
       setIsLoading(false)
   };
+  console.log('apiErrorMsg', apiErrorMsg)
 
 
 //   Login Request
@@ -76,10 +77,11 @@ const AuthProvider = (props) => {
       setIsLoading(false)
       const data = response.data;
       setUser(data.user)
+      console.log('response', response)
     //   props.onLoggedIn(data);
       console.log('response', user)
     } catch (error) {
-        console.log('error', error.response.data)
+        console.log('error', error)
       setIsLoading(false)
     }
   };
