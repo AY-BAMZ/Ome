@@ -86,6 +86,35 @@ const AuthProvider = (props) => {
     }
   };
 
+  // forgot password
+  const handleResetPassword = async ({
+    email,
+  }) => {
+
+   setIsLoading(true)
+   try {
+      const response = await axios.post(
+        URI_MAP.ome.forgotpassword,
+        {
+          email: email,
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+                }
+        }
+      );
+      setIsLoading(false)
+      const data = response.data;
+      // setUser(data.user)
+      console.log('response', response)
+    //   props.onLoggedIn(data);
+      // console.log('response', user)
+    } catch (error) {
+        console.log('error', error)
+      setIsLoading(false)
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -95,6 +124,7 @@ const AuthProvider = (props) => {
         handleLogIn,
         isLoading,
         setIsLoading,
+        handleResetPassword,
       }}
     >
       {props.children}

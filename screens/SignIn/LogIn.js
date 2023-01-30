@@ -19,8 +19,8 @@ export default function Login({ navigation }) {
 
   const passwordRef = createRef();
 
-  const {handleLogIn} = useAuthContext()
-  const {isLoading} = useAuthContext() 
+  const { handleLogIn } = useAuthContext();
+  const { isLoading } = useAuthContext();
 
   const updateInputVal = (val, prop) => {
     if (prop === "email") {
@@ -34,10 +34,8 @@ export default function Login({ navigation }) {
     if (email === "") {
       setErrorMsg("email address field cannot be empty");
     } else if (password.length < 8) {
-      setErrorMsg(
-        "your password must not be less than 8 character"
-      );
-    }  else {
+      setErrorMsg("your password must not be less than 8 character");
+    } else {
       handleLogIn({
         email,
         password,
@@ -48,7 +46,6 @@ export default function Login({ navigation }) {
   if (isLoading) {
     return <Loading />;
   }
-
 
   return (
     <View style={styles.container}>
@@ -96,6 +93,9 @@ export default function Login({ navigation }) {
         >
           <Text style={globalStyles.buttonText}>Log In</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
+          <Text style={styles.forgotPassword}>Forgot Password</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={globalStyles.buttonTwo}>
           <Text
             onPress={() => navigation.navigate("Register")}
@@ -138,5 +138,11 @@ const styles = StyleSheet.create({
   },
   buttons: {
     marginHorizontal: 20,
+  },
+  forgotPassword: {
+    fontFamily: "outfit-medium",
+    color: "#79007B",
+    fontSize: 16,
+    marginTop: 12,
   },
 });
