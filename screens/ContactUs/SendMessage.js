@@ -3,7 +3,7 @@ import React from "react";
 import { globalStyles } from "../../styles/global";
 import { useContactContext } from "../../api/Contact/ContactContext";
 
-export default function SuccessModal({setModalVisible, modalVisible}) {
+export default function SendMessage({navigation}) {
 
   const { successful, setSuccessful } = useContactContext();
 

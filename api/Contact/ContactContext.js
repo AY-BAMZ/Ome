@@ -10,18 +10,17 @@ const ContactProvider = (props) => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [successful, setSuccessful] = useState(false);
+  
 
-  //   sign up request
-
-  const handleContact = async () => {
+  const handleContact = async ({message}) => {
     setIsLoading(true);
     try {
       const response = await axios.post(
         URI_MAP.ome.contactus,
         {
-          first_name: user.first_name,
-          last_name: user.last_name,
-          email: user.email,
+          first_name: user.user.first_name,
+          last_name: user.user.last_name,
+          email: user.user.email,
           message: message,
         },
         {

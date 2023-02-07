@@ -37,8 +37,7 @@ const AuthProvider = (props) => {
       );
       setIsLoading(false)
       const data = response.data;
-      setUser(data.user)
-      console.log('response', response.data)
+      setUser(data)
     } catch (error) {
         console.log('error', error.response)
         if (!err?.response) {
@@ -76,10 +75,7 @@ const AuthProvider = (props) => {
       );
       setIsLoading(false)
       const data = response.data;
-      setUser(data.user)
-      console.log('response', response)
-    //   props.onLoggedIn(data);
-      console.log('response', user)
+      setUser(data)
     } catch (error) {
         console.log('error', error)
       setIsLoading(false)

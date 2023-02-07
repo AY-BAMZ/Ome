@@ -1,4 +1,5 @@
 import {
+  Alert,
   Keyboard,
   StyleSheet,
   Text,
@@ -10,16 +11,14 @@ import React, { useEffect, useState } from "react";
 import { globalStyles } from "../../styles/global";
 import { useContactContext } from "../../api/Contact/ContactContext";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { Modal } from "react-native-paper";
-import SuccessModal from "./SuccessModal";
 import Loading from "../Loadings/Loading";
 
 export default function ContactUs() {
+  const [errorMessage, setErrorMessage] = useState("")
   const { message, setMessage } = useContactContext();
   const { isLoading, setIsLoading } = useContactContext();
   const { successful, setSuccessful } = useContactContext();
   const { handleContact } = useContactContext();
-  const [modalVisible, setModalVisible] = useState(false);
 
   const updateInputVal = (val, prop) => {
     if (prop === "message") {
@@ -27,19 +26,33 @@ export default function ContactUs() {
     }
   };
 
-  const handleSetModal = () => {
-    if (successful === true) {
-      setModalVisible(true);
-    } else {
-      setModalVisible(false);
+  
+  const createContactRequest = () => {
+    if (message === "") {
+      setErrorMessage("message cannot be empty")
+    } else{
+      handleContact({
+        message
+      })
     }
-  };
-  useEffect(() => {
-    return handleSetModal();
-  }, []);
+  }
+
+  const contactSuccessful = () =>
+  Alert.alert('Sent', 'Your request have been sent successfully', [
+    {
+      text: 'Thanks',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel',
+    },
+    {text: 'View', onPress: () => console.log('OK Pressed')},
+  ]);
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (successful) {
+    contactSuccessful()
   }
 
   return (
@@ -58,28 +71,16 @@ export default function ContactUs() {
             multiline={true}
             value={message}
             onChangeText={(val) => updateInputVal(val, "message")}
-            onSubmitEditing={() => handleContact()}
+            onSubmitEditing={() => createContactRequest()}
           />
         </TouchableWithoutFeedback>
         <TouchableOpacity
-          onPress={() => {
-            handleContact();
-            handleSetModal();
-          }}
+          onPress={() => createContactRequest()}
           style={globalStyles.button}
         >
           <Text style={globalStyles.buttonText}>Send Message</Text>
         </TouchableOpacity>
       </View>
-        <Modal visible={modalVisible}>
-          <TouchableWithoutFeedback
-            onPress={() => {
-              Keyboard.dismiss();
-            }}
-          >
-            <SuccessModal setModalVisible={setModalVisible} modalVisible={modalVisible}/>
-          </TouchableWithoutFeedback>
-        </Modal>
     </View>
   );
 }

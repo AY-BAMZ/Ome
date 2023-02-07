@@ -15,6 +15,7 @@ import Header from "../screens/DrawerTabs/Header";
 import Blogs from "../screens/Blogs/Blogs";
 import BlogStack from "./BlogsRoute/BlogStack";
 import ContactUs from "../screens/ContactUs/ContactUs";
+import ContactStack from "./Contactroute/ContactStack";
 
 const Drawer = createDrawerNavigator();
 
@@ -110,7 +111,7 @@ export default function DrawerNav() {
           component={BlogStack}
         />
         <Drawer.Screen
-          name="ContactUs"
+          name="ContactSupport"
           options={{
             drawerIcon: ({ color, size, focused }) =>
               focused ? (
@@ -121,7 +122,7 @@ export default function DrawerNav() {
           header: () => <Header title={'Contact Us'} />,
           headerShown: true
           }}
-          component={ContactUs}
+          component={ContactStack}
         />
       </Drawer.Navigator>
   );
